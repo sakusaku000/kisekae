@@ -13,7 +13,7 @@
 <script setup lang="ts">
     import { useBeatCountStore } from '@/stores/BeatCount';
     import { useAssetsStore } from '@/stores/ImageAssets';
-    import { watch } from 'vue';
+    import { onMounted, watch } from 'vue';
     import { gsap } from "gsap";
     
     const assets = useAssetsStore();
@@ -34,12 +34,16 @@
     let xPos = 0;
     // -- move amount
     const moveAmount = 182.5;
-    watch(() => beats.count.second, () => {
+
+    const push = () => {
         setTimeout(() => {
             // -- set new x pos
             props.reverse ? xPos -= moveAmount : xPos += moveAmount;
             // -- animate faceplates
             gsap.to(`#fp${props.id}`, {x:xPos, duration:.3, ease:"circ.inOut"});
         },455);
-    })
+    }
+
+    onMounted(push);
+    watch(() => beats.count.second, push);
 </script>

@@ -4,6 +4,10 @@
         <TestColourCycle v-if="activeScene === 'TestColourCycle'"/>
         <!-- Kyary Full Screen -->
         <KyaryFullScreen v-if="activeScene === 'KyaryFullScreen'"/>
+        <!-- Kisekae Flash -->
+        <DateFlash :variation="'kisekae'" v-if="activeScene === 'KisekaeFlash'"/>
+        <!-- Date Flash -->
+        <DateFlash :variation="'date'" v-if="activeScene === 'DateFlash'"/>
     </div>
 </template>
 
@@ -20,6 +24,8 @@
     import TestColourCycle from '../Scenes/TestColourCycle.vue';
     // Kyary Full Screen
     import KyaryFullScreen from '../Scenes/KyaryFullScreen/KyaryFullScreen.vue';
+    // Date Flash
+    import DateFlash from '../Scenes/DateFlash/DateFlash.vue';
 
     // -- set active scene
     let activeScene:Ref<string,string> = ref("");
@@ -27,10 +33,11 @@
     // -- define scene list that will be used
     let scenes:Array<string> = [
         "KyaryFullScreen",
-        "TestColourCycle"
+        "TestColourCycle",
+        "KisekaeFlash",
+        "KyaryFullScreen",
+        "DateFlash"
     ];
-    // -- shuffle scenes array to randomise order
-    scenes = ShuffleArray(scenes);
 
     // -- cycle through scenes function
     const cycleScene = () => {

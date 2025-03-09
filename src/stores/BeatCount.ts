@@ -14,11 +14,11 @@ export const useBeatCountStore = defineStore("beatcount", {
         },
         increaseSecond() {
             // -- increase second beat by 1, or reset back to 0 if over 4
-            this.count.second > 3 ? this.count.second = 0 : this.count.second++;
+            this.count.second > 2 ? this.count.second = 0 : this.count.second++;
         },
         increaseHalfSecond() {
             // -- increase half second beat by 1, or reset back to 0 if over 4
-            this.count.half > 3 ? this.count.half = 0 : this.count.half++;
+            this.count.half > 2 ? this.count.half = 0 : this.count.half++;
         },
         resetCount() {
             this.count.second = 0;

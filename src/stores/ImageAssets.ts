@@ -24,6 +24,12 @@ export const useAssetsStore = defineStore("assets", {
                     {name:"fp_row0", file:"3ds/faceplate_0.png"},
                     {name:"fp_row1", file:"3ds/faceplate_1.png"},
                     {name:"fp_row2", file:"3ds/faceplate_2.png"},
+
+                    // date/kisekae
+                    {name:"dateflash_kisekae0", file:"date_flash/kisekae_0.png"},
+                    {name:"dateflash_kisekae1", file:"date_flash/kisekae_1.png"},
+                    {name:"dateflash_date0", file:"date_flash/date_0.png"},
+                    {name:"dateflash_date1", file:"date_flash/date_1.png"},
                 ]
 
                 // -- define sound assets
