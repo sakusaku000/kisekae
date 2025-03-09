@@ -33,7 +33,7 @@
     // -- store x move pos
     let xPos = 0;
     // -- move amount
-    const moveAmount = 182;
+    const moveAmount = 182.5;
     watch(() => beats.count.second, () => {
         setTimeout(() => {
             // -- set new x pos
