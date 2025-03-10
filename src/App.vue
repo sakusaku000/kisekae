@@ -30,7 +30,7 @@
     import { useBeatCountStore } from './stores/BeatCount';
     import Sleep from './utils/Sleep';
     import UILayout from './components/UI/UILayout.vue';
-import KeyboardControlHandler from './components/Handlers/KeyboardControlHandler.vue';
+    import KeyboardControlHandler from './components/Handlers/KeyboardControlHandler.vue';
 
     // -- get stores
     const assets = useAssetsStore();
@@ -41,7 +41,7 @@ import KeyboardControlHandler from './components/Handlers/KeyboardControlHandler
 
     onMounted(async () => {
         try {
-            await Sleep(1000);
+            await Sleep(500);
             // -- attempt to load assets
             await assets.load();
             // -- log when assets completed and set app to ready

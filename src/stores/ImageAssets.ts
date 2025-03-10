@@ -3,7 +3,9 @@ import { defineStore } from "pinia";
 
 export const useAssetsStore = defineStore("assets", {
     state:() => ({
-        image:new Map() as Map<string, string>
+        image:new Map() as Map<string, string>,
+        assetsLoaded:0,
+        assetsTotal:0
     }),
     actions:{
         async load() {
@@ -43,6 +45,12 @@ export const useAssetsStore = defineStore("assets", {
                     {name:"fp_row1", file:"3ds/faceplate_1.png"},
                     {name:"fp_row2", file:"3ds/faceplate_2.png"},
 
+                    // 3ds
+                    {name:"3ds_white_lg", file:"3ds/3ds_white_lg.png"},
+                    {name:"3ds_black_lg", file:"3ds/3ds_black_lg.png"},
+                    {name:"3ds_white_lg_shd", file:"3ds/ds_shoulders_white.png"},
+                    {name:"3ds_black_lg_shd", file:"3ds/ds_shoulders_black.png"},
+
                     // date/kisekae
                     {name:"dateflash_kisekae0", file:"date_flash/kisekae_0.png"},
                     {name:"dateflash_kisekae1", file:"date_flash/kisekae_1.png"},
@@ -68,11 +76,15 @@ export const useAssetsStore = defineStore("assets", {
                     {name:"video_0", file:"video/1.webm"},
                     {name:"video_1", file:"video/2.webm"},
                 ]
+                // -- set asset total
+                this.assetsTotal = assets.length;
 
                 // -- iterate through assets and load into store
                 for (const asset of assets) {
+                    // -- load asset as base64 string and store in map
                     const dataUrl = await loadAsset(asset.file);
                     console.log(`Fetched asset: ${asset.file}`);
+                    this.assetsLoaded++;
                     this.image.set(asset.name, dataUrl);
                 }
 
