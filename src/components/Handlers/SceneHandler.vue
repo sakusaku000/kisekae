@@ -10,6 +10,10 @@
         <DateFlash :variation="'date'" v-if="activeScene === 'DateFlash'"/>
         <!-- Character Showcase -->
         <CharacterShowcase v-if="activeScene === 'CharacterShowcase'"/>
+        <!-- Video (1) -->
+        <VideoPlayer :videoId="0" v-if="activeScene === 'Video01'"/>
+        <!-- Video (2) -->
+        <VideoPlayer :videoId="1" v-if="activeScene === 'Video02'"/>
     </div>
 </template>
 
@@ -27,7 +31,10 @@
     import KyaryFullScreen from '../Scenes/KyaryFullScreen/KyaryFullScreen.vue';
     // Date Flash
     import DateFlash from '../Scenes/DateFlash/DateFlash.vue';
-import CharacterShowcase from '../Scenes/CharacterShowcase/CharacterShowcase.vue';
+    // Character Showcase
+    import CharacterShowcase from '../Scenes/CharacterShowcase/CharacterShowcase.vue';
+    // Video Player
+    import VideoPlayer from '../Scenes/VideoPlayer/VideoPlayer.vue';
 
     // -- set active scene
     let activeScene:Ref<string,string> = ref("");
@@ -35,9 +42,12 @@ import CharacterShowcase from '../Scenes/CharacterShowcase/CharacterShowcase.vue
     // -- define scene list that will be used
     let scenes:Array<string> = [
         "KyaryFullScreen",
-        "KisekaeFlash",
         "CharacterShowcase",
+        "KisekaeFlash",
+        "Video01",
         "DateFlash",
+        "Video02",
+        "KisekaeFlash",
     ];
 
     // -- cycle through scenes function
