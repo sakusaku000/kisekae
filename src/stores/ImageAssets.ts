@@ -3,14 +3,13 @@ import { defineStore } from "pinia";
 
 export const useAssetsStore = defineStore("assets", {
     state:() => ({
-        image:new Map() as Map<string, string>,
-        sound:new Map() as Map<string, string>
+        image:new Map() as Map<string, string>
     }),
     actions:{
         async load() {
             try {
                 // -- define image assets
-                const images:AssetData[] = [
+                const assets:AssetData[] = [
                     // ui
                     {name:"ui_nintendo_logo", file:"ui/nintendo.png"},
                     {name:"ui_3ds_logo", file:"ui/3ds.png"},
@@ -61,25 +60,20 @@ export const useAssetsStore = defineStore("assets", {
                     {name:"chr_samus", file:"characters/samus.png"},
                     {name:"chr_toad", file:"characters/toad.png"},
                     {name:"chr_villager", file:"characters/villager.png"},
+
+                    // sound
+                    {name:"bgm", file:"bg.mp3"},
+
+                    // video
+                    {name:"video_0", file:"video/1.webm"},
+                    {name:"video_1", file:"video/2.webm"},
                 ]
 
-                // -- define sound assets
-                const sounds:AssetData[] = [
-                    {name:"bg", file:"bg.mp3"}
-                ]
-
-                // -- iterate through image assets and load into store
-                for (const image of images) {
-                    const dataUrl = await loadAsset(image.file);
-                    console.log(`Fetched image asset: ${image.file}`);
-                    this.image.set(image.name, dataUrl);
-                }
-
-                // -- iterate through sound assets and load into store
-                for (const sound of sounds) {
-                    const dataUrl = await loadAsset(sound.file);
-                    console.log(`Fetched sound asset: ${sound.file}`);
-                    this.sound.set(sound.name, dataUrl);
+                // -- iterate through assets and load into store
+                for (const asset of assets) {
+                    const dataUrl = await loadAsset(asset.file);
+                    console.log(`Fetched asset: ${asset.file}`);
+                    this.image.set(asset.name, dataUrl);
                 }
 
                 return;

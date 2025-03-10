@@ -14,7 +14,7 @@
     onMounted(() => {
         // -- create audio player and play as soon as possible
         const bg = new Howl({
-            src:[assets.sound.get("bg")],
+            src:[assets.image.get("bgm")],
             loop:true,
             mute:beats.mute
         });
