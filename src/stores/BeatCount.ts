@@ -4,6 +4,7 @@ export const useBeatCountStore = defineStore("beatcount", {
     state:() => ({
         ready:false,
         mute:false,
+        musicStopped:false,
         count:{
             second:0,
             half:0
@@ -34,6 +35,9 @@ export const useBeatCountStore = defineStore("beatcount", {
         toggleMute() {
             this.mute = !this.mute;
             localStorage.setItem("mute", `${this.mute}`);
+        },
+        toggleMusicStop() {
+            this.musicStopped = !this.musicStopped;
         }
     }
 });

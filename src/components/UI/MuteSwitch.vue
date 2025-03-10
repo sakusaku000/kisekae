@@ -1,5 +1,5 @@
 <template>
-    <div class="absolute top-6 -left-2 scale-50 opacity-50 hover:opacity-100 duration-200">
+    <div class="absolute -bottom-3 -left-3 scale-50 opacity-50 hover:opacity-100 duration-200">
         <button @click="beats.toggleMute">
             <PinkBtn>
                 <VolumeOn class="vol" v-if="!beats.mute"/>

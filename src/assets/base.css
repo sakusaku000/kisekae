@@ -4,6 +4,10 @@
     --font-sans: "Nunito Variable", "sans-serif";
 }
 
+a {
+    @apply underline;
+}
+
 /* fade transition anim */
 .fade-enter-active,
 .fade-leave-active {
@@ -18,5 +22,5 @@
 }
 
 .sharp-shadow {
-    filter:drop-shadow(5px 6px 0px #0000003f);
+    filter:drop-shadow(5px 6px 0px #0000002c);
 }

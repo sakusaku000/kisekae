@@ -1,0 +1,1 @@
+export type BgScrollDirection = "up"|"down"|"left"|"right"|"diag-tl"|"diag-tr"|"diag-bl"|"diag-br";

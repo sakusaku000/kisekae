@@ -28,6 +28,11 @@
             beats.mute === true ? bg.mute(true) : bg.mute(false);
         });
 
+        // -- DEBUG: listen for "P" key event and toggle pause
+        watch(() => beats.musicStopped, () => {
+            beats.musicStopped === true ? bg.stop() : bg.play();
+        })
+
         // -- run counting function with stored intervals
         let secondInterval:number = 0
         let halfSecondInterval:number = 0;
@@ -49,6 +54,12 @@
             clearInterval(halfSecondInterval);
             startCounters();
             console.log("LOOP!");
+        })
+
+        // -- on stop, reset beat counts and intervals
+        bg.on("stop", () => {
+            clearInterval(secondInterval);
+            clearInterval(halfSecondInterval)
         })
     })
 </script>

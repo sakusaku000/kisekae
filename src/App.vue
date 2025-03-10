@@ -17,6 +17,7 @@
     </Transition>
 
     <BGAudioHandler v-if="beats.ready"/>
+    <KeyboardControlHandler v-if="beats.ready"/>
 </template>
 
 <script lang="ts" setup>
@@ -29,6 +30,7 @@
     import { useBeatCountStore } from './stores/BeatCount';
     import Sleep from './utils/Sleep';
     import UILayout from './components/UI/UILayout.vue';
+import KeyboardControlHandler from './components/Handlers/KeyboardControlHandler.vue';
 
     // -- get stores
     const assets = useAssetsStore();

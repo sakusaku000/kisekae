@@ -8,12 +8,13 @@
         <DateFlash :variation="'kisekae'" v-if="activeScene === 'KisekaeFlash'"/>
         <!-- Date Flash -->
         <DateFlash :variation="'date'" v-if="activeScene === 'DateFlash'"/>
+        <!-- Character Showcase -->
+        <CharacterShowcase v-if="activeScene === 'CharacterShowcase'"/>
     </div>
 </template>
 
 <script lang="ts" setup>
     import { ref, watch, type Ref } from 'vue';
-    import ShuffleArray from '@/utils/ShuffleArray';
     import { useBeatCountStore } from '@/stores/BeatCount';
 
     // -- access beat counts
@@ -26,6 +27,7 @@
     import KyaryFullScreen from '../Scenes/KyaryFullScreen/KyaryFullScreen.vue';
     // Date Flash
     import DateFlash from '../Scenes/DateFlash/DateFlash.vue';
+import CharacterShowcase from '../Scenes/CharacterShowcase/CharacterShowcase.vue';
 
     // -- set active scene
     let activeScene:Ref<string,string> = ref("");
@@ -33,10 +35,9 @@
     // -- define scene list that will be used
     let scenes:Array<string> = [
         "KyaryFullScreen",
-        "TestColourCycle",
         "KisekaeFlash",
-        "KyaryFullScreen",
-        "DateFlash"
+        "CharacterShowcase",
+        "DateFlash",
     ];
 
     // -- cycle through scenes function

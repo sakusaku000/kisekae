@@ -1,8 +1,8 @@
 <template>
-    <ImagePatternLoop :imageUrl="assets.image.get('bg_faceplates')" :width="1600" :height="720" :reverse="true"/>
+    <ImagePatternLoop :imageUrl="assets.image.get('bg_faceplates')" :width="1600" :height="720" direction="diag-tl"/>
 
     <div class="absolute inset-0 flex items-center justify-center">
-        <div class="dftxt"><img :src="currentAsset" class="translate-x-[70vw]"></div>
+        <div class="text-slide"><img :src="currentAsset"></div>
     </div>
 </template>
 
@@ -10,8 +10,7 @@
     import ImagePatternLoop from '@/components/Backgrounds/ImagePatternLoop.vue';
     import { useBeatCountStore } from '@/stores/BeatCount';
     import { useAssetsStore } from '@/stores/ImageAssets';
-    import gsap from 'gsap';
-    import { onMounted, ref, watch } from 'vue';
+    import { ref, watch } from 'vue';
     const assets = useAssetsStore();
     const beats = useBeatCountStore();
 
@@ -27,9 +26,18 @@
         currentAsset.value = assets.image.get(`dateflash_${props.variation}${num}`);
     }
     watch(() => beats.count.half, cycle);
-
-    onMounted(() => {
-        // -- push text along screen
-        gsap.to(".dftxt", {x:-3000, duration:5, ease:"none"})
-    })
 </script>
+
+<style scoped>
+    .text-slide {
+        animation:text-slide 4s linear forwards;
+    }
+    @keyframes text-slide {
+        from {
+            transform:translateX(70vw)
+        }
+        to {
+            transform:translateX(-40vw)
+        }
+    }
+</style>

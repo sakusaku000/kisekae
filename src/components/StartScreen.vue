@@ -1,6 +1,6 @@
 <template>
     <div class="fixed inset-0">
-        <ImagePatternLoop :imageUrl="assets.image.get('bg_faceplates')" :width="1600" :height="720" :reverse="true"/>
+        <ImagePatternLoop :imageUrl="assets.image.get('bg_faceplates')" :width="1600" :height="720" :reverse="true" direction="diag-tl"/>
 
         <div class="absolute inset-0 flex flex-col justify-center items-center">
             <button @click="beats.setAppReady()">

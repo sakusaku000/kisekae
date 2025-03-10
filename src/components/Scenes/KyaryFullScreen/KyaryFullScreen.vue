@@ -1,5 +1,5 @@
 <template>
-    <ImagePatternLoop :imageUrl="assets.image.get('bg_faceplates')" :width="1600" :height="720"/>
+    <ImagePatternLoop :imageUrl="assets.image.get('bg_faceplates')" :width="1600" :height="720" direction="diag-br"/>
 
     <!-- 3DS Rows -->
     <DSRowContainer/>
