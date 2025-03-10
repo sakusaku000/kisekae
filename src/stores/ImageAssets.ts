@@ -11,6 +11,10 @@ export const useAssetsStore = defineStore("assets", {
             try {
                 // -- define image assets
                 const images:AssetData[] = [
+                    // ui
+                    {name:"ui_nintendo_logo", file:"ui/nintendo.png"},
+                    {name:"ui_3ds_logo", file:"ui/3ds.png"},
+
                     // bg
                     {name:"bg_faceplates", file:"bg/fp_pattern.png"},
                     {name:"bg_dot", file:"bg/dot.png"},

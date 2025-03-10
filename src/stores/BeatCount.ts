@@ -3,6 +3,7 @@ import { defineStore } from "pinia";
 export const useBeatCountStore = defineStore("beatcount", {
     state:() => ({
         ready:false,
+        mute:false,
         count:{
             second:0,
             half:0
@@ -10,6 +11,12 @@ export const useBeatCountStore = defineStore("beatcount", {
     }),
     actions:{
         setAppReady() {
+            // -- check if local storage has a mute state already
+            if (localStorage.getItem("mute")) {
+                this.mute = localStorage.getItem("mute") === "true" ? true : false;
+            }
+
+            // -- set ready
             this.ready = true;
         },
         increaseSecond() {
@@ -23,6 +30,10 @@ export const useBeatCountStore = defineStore("beatcount", {
         resetCount() {
             this.count.second = 0;
             this.count.half = 0;
+        },
+        toggleMute() {
+            this.mute = !this.mute;
+            localStorage.setItem("mute", `${this.mute}`);
         }
     }
 });

@@ -3,7 +3,7 @@
 <script lang="ts" setup>
     import { Howl } from "howler";
     import { useBeatCountStore } from "@/stores/BeatCount";
-    import { onMounted } from "vue";
+    import { onMounted, watch } from "vue";
     import { useAssetsStore } from "@/stores/ImageAssets";
 
     // -- fetch beats store
@@ -15,12 +15,18 @@
         // -- create audio player and play as soon as possible
         const bg = new Howl({
             src:[assets.sound.get("bg")],
-            loop:true
+            loop:true,
+            mute:beats.mute
         });
         setTimeout(() => {
             bg.fade(0.0, 1.0, 1000);
             bg.play();
-        }, 800)
+        }, 800);
+
+        // -- watch for mute state changes
+        watch(() => beats.mute, () => {
+            beats.mute === true ? bg.mute(true) : bg.mute(false);
+        });
 
         // -- run counting function with stored intervals
         let secondInterval:number = 0

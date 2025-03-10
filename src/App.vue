@@ -11,6 +11,11 @@
         <SceneHandler v-if="beats.ready"/>
     </Transition>
 
+    <!-- ui layer -->
+    <Transition name="fade">
+        <UILayout v-if="beats.ready"/>
+    </Transition>
+
     <BGAudioHandler v-if="beats.ready"/>
 </template>
 
@@ -23,6 +28,7 @@
     import StartScreen from './components/StartScreen.vue';
     import { useBeatCountStore } from './stores/BeatCount';
     import Sleep from './utils/Sleep';
+    import UILayout from './components/UI/UILayout.vue';
 
     // -- get stores
     const assets = useAssetsStore();
@@ -45,22 +51,3 @@
         }
     })
 </script>
-
-<style>
-    .fade-enter-active,
-    .fade-leave-active {
-        transition: .8s ease;
-    }
-    .fade-enter-active {
-        transition-delay:0.9s;
-    }
-
-    .fade-enter-from,
-    .fade-leave-to {
-        opacity: 0;
-    }
-
-    a {
-        @apply underline;
-    }
-</style>
