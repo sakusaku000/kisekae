@@ -14,6 +14,8 @@
         <VideoPlayer :videoId="0" v-if="activeScene === 'Video01'"/>
         <!-- Video (2) -->
         <VideoPlayer :videoId="1" v-if="activeScene === 'Video02'"/>
+        <!-- Faceplate showcase -->
+        <FaceplateShowcaseFS v-if="activeScene === 'FaceplateShowcaseFS'"/>
     </div>
 </template>
 
@@ -35,6 +37,8 @@
     import CharacterShowcase from '../Scenes/CharacterShowcase/CharacterShowcase.vue';
     // Video Player
     import VideoPlayer from '../Scenes/VideoPlayer/VideoPlayer.vue';
+    // Faceplate Showcase Full Screen
+    import FaceplateShowcaseFS from '../Scenes/FaceplateShowcaseFS/FaceplateShowcaseFS.vue';
 
     // -- set active scene
     let activeScene:Ref<string,string> = ref("");
@@ -44,6 +48,7 @@
         "KyaryFullScreen",
         "CharacterShowcase",
         "KisekaeFlash",
+        "FaceplateShowcaseFS",
         "Video01",
         "DateFlash",
         "Video02",

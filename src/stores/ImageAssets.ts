@@ -18,6 +18,7 @@ export const useAssetsStore = defineStore("assets", {
 
                     // bg
                     {name:"bg_faceplates", file:"bg/fp_pattern.png"},
+                    {name:"bg_pattern_isabelle", file:"bg/pattern_isabelle.png"},
                     // dots
                     {name:"bg_dot", file:"bg/dot.png"},
                     {name:"bg_dot_dk", file:"bg/dot_dk.png"},
@@ -28,6 +29,7 @@ export const useAssetsStore = defineStore("assets", {
                     // stripes
                     {name:"bg_stripe", file:"bg/stripe.png"},
                     {name:"bg_stripe_horizontal", file:"bg/stripe_horizontal.png"},
+                    {name:"bg_stripe_vertical", file:"bg/stripe_vertical.png"},
                     {name:"bg_stripe_kirby", file:"bg/stripe_kirby.png"},
                     {name:"bg_stripe_mario", file:"bg/stripe_mario.png"},
                     {name:"bg_stripe_pikachu", file:"bg/stripe_pikachu.png"},
@@ -76,6 +78,11 @@ export const useAssetsStore = defineStore("assets", {
                     {name:"video_0", file:"video/1.webm"},
                     {name:"video_1", file:"video/2.webm"},
                 ]
+                // -- push faceplate assets into array
+                for (let i = 0; i < 72; i++) {
+                    assets.push({name:`fp${i}`, file:`faceplates/new${i}.png`});
+                }
+
                 // -- set asset total
                 this.assetsTotal = assets.length;
 
