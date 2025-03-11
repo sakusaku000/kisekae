@@ -18,6 +18,8 @@
         <FaceplateShowcaseFS v-if="beats.activeScene === 'FaceplateShowcaseFS'"/>
         <!-- Kyary PAPAPA -->
         <KyaryPapapa v-if="beats.activeScene === 'KyaryPapapa'"/>
+        <!-- DS Circle -->
+        <DSCircle v-if="beats.activeScene === 'DSCircle'"/>
     </div>
 </template>
 
@@ -43,6 +45,8 @@
     import FaceplateShowcaseFS from '../Scenes/FaceplateShowcaseFS/FaceplateShowcaseFS.vue';
     // Kyary PAPAPA
     import KyaryPapapa from '../Scenes/KyaryPapapa/KyaryPapapa.vue';
+    // DS Circle
+    import DSCircle from '../Scenes/DSCircle/DSCircle.vue';
 
     // -- define scene list that will be used
     let scenes:Array<string> = [
@@ -54,6 +58,7 @@
         "KyaryPapapa",
         "DateFlash",
         "Video02",
+        // "DSCircle"
     ];
 
     // -- cycle through scenes function
