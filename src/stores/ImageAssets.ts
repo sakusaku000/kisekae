@@ -72,7 +72,7 @@ export const useAssetsStore = defineStore("assets", {
                     {name:"chr_villager", file:"characters/villager.png"},
 
                     // sound
-                    {name:"bgm", file:"bg.mp3"},
+                    {name:"bgm", file:"bg2.mp3"},
 
                     // video
                     {name:"video_0", file:"video/1.webm"},

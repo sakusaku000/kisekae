@@ -23,13 +23,14 @@
     // -- switch between DS colours
     let dsColour:Ref<"white"|"black"> = ref("white");
     const switchDsColour = () => {
-        dsColour.value = dsColour.value === "white" ? "black" : "white";
+        setTimeout(() => {
+            dsColour.value = dsColour.value === "white" ? "black" : "white";
+        }, 455)
     }
 
     // -- listen for beat changes
-    watch(() => beats.count.second, () => {
-        setTimeout(switchDsColour, 455);
-    })
+    switchDsColour();
+    watch(() => beats.count.second, switchDsColour)
 </script>
 
 <style scoped>
