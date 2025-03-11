@@ -36,6 +36,7 @@
         // -- run counting function with stored intervals
         let secondInterval:number = 0
         let halfSecondInterval:number = 0;
+        let progressInterval:number = 0;
         const startCounters = () => {
             // -- count up second interval
             secondInterval = setInterval(() => {
@@ -45,6 +46,8 @@
             halfSecondInterval = setInterval(() => {
                 beats.increaseHalfSecond();
             }, 455)
+            // -- count up song progress
+            progressInterval = setInterval(beats.increaseSongProgress, 1);
         }
 
         // -- on play or loop, reset beat counts and intervals and setup counters again
@@ -52,6 +55,7 @@
             beats.resetCount();
             clearInterval(secondInterval);
             clearInterval(halfSecondInterval);
+            clearInterval(progressInterval);
             startCounters();
             console.log("LOOP!");
         })
@@ -59,7 +63,8 @@
         // -- on stop, reset beat counts and intervals
         bg.on("stop", () => {
             clearInterval(secondInterval);
-            clearInterval(halfSecondInterval)
+            clearInterval(halfSecondInterval);
+            clearInterval(progressInterval);
         })
     })
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <div class="absolute bottom-24 left-[45px] -right-[140px] h-20 bg-neutral-900 select-none pointer-events-none p-1 rounded-3xl scale-0 -translate-x-24 translate-y-16 group-hover:scale-150 group-hover:translate-x-0 group-hover:translate-y-0 sharp-shadow hint">
+    <div class="absolute bottom-24 left-[45px] -right-[140px] h-28 bg-neutral-900 select-none pointer-events-none p-1 rounded-3xl scale-0 -translate-x-24 translate-y-16 group-hover:scale-150 group-hover:translate-x-0 group-hover:translate-y-0 sharp-shadow hint">
         <ImagePatternLoop 
         :imageUrl="assets.image.get('bg_dot')"
         bg-color="f1f1f1"
@@ -16,6 +16,7 @@
         <div class="absolute inset-2 ml-4 flex flex-col justify-center">
             <p>Press <b>M</b> to mute</p>
             <p>Press <b>P</b> to pause</p>
+            <p>Press <b>R</b> to reset</p>
         </div>
     </div>
 </template>

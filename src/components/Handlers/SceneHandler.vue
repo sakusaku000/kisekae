@@ -1,28 +1,28 @@
 <template>
     <div class="fixed inset-0 select-none pointer-events-none">
         <!-- Test Colour cycle -->
-        <TestColourCycle v-if="activeScene === 'TestColourCycle'"/>
+        <TestColourCycle v-if="beats.activeScene === 'TestColourCycle'"/>
         <!-- Kyary Full Screen -->
-        <KyaryFullScreen v-if="activeScene === 'KyaryFullScreen'"/>
+        <KyaryFullScreen v-if="beats.activeScene === 'KyaryFullScreen'"/>
         <!-- Kisekae Flash -->
-        <DateFlash :variation="'kisekae'" v-if="activeScene === 'KisekaeFlash'"/>
+        <DateFlash :variation="'kisekae'" v-if="beats.activeScene === 'KisekaeFlash'"/>
         <!-- Date Flash -->
-        <DateFlash :variation="'date'" v-if="activeScene === 'DateFlash'"/>
+        <DateFlash :variation="'date'" v-if="beats.activeScene === 'DateFlash'"/>
         <!-- Character Showcase -->
-        <CharacterShowcase v-if="activeScene === 'CharacterShowcase'"/>
+        <CharacterShowcase v-if="beats.activeScene === 'CharacterShowcase'"/>
         <!-- Video (1) -->
-        <VideoPlayer :videoId="0" v-if="activeScene === 'Video01'"/>
+        <VideoPlayer :videoId="0" v-if="beats.activeScene === 'Video01'"/>
         <!-- Video (2) -->
-        <VideoPlayer :videoId="1" v-if="activeScene === 'Video02'"/>
+        <VideoPlayer :videoId="1" v-if="beats.activeScene === 'Video02'"/>
         <!-- Faceplate showcase -->
-        <FaceplateShowcaseFS v-if="activeScene === 'FaceplateShowcaseFS'"/>
+        <FaceplateShowcaseFS v-if="beats.activeScene === 'FaceplateShowcaseFS'"/>
         <!-- Kyary PAPAPA -->
-        <KyaryPapapa v-if="activeScene === 'KyaryPapapa'"/>
+        <KyaryPapapa v-if="beats.activeScene === 'KyaryPapapa'"/>
     </div>
 </template>
 
 <script lang="ts" setup>
-    import { ref, watch, type Ref } from 'vue';
+    import { watch } from 'vue';
     import { useBeatCountStore } from '@/stores/BeatCount';
 
     // -- access beat counts
@@ -44,9 +44,6 @@
     // Kyary PAPAPA
     import KyaryPapapa from '../Scenes/KyaryPapapa/KyaryPapapa.vue';
 
-    // -- set active scene
-    let activeScene:Ref<string,string> = ref("");
-
     // -- define scene list that will be used
     let scenes:Array<string> = [
         "KyaryFullScreen",
@@ -65,7 +62,7 @@
         const scene = scenes.shift();
 
         // -- set as active scene
-        activeScene.value = scene;
+        beats.setActiveScene(scene);
         console.log(`New Scene: ${scene}`);
 
         // -- place back into end of array

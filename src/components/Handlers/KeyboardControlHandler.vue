@@ -12,6 +12,12 @@
             case "m":
                 beats.toggleMute();
                 break;
+            case "r":
+                beats.reset();
+                break;
+            case "]":
+                beats.toggleDebug();
+                break;
         }
     }
 </script>

@@ -4,7 +4,7 @@
     </Transition>
 
     <Transition name="fade">
-        <StartScreen v-if="!load && !beats.ready"/>
+        <StartScreen v-if="!load && !beats.ready && !beats.started"/>
     </Transition>
     
     <Transition name="fade">
