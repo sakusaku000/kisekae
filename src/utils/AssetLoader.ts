@@ -29,7 +29,7 @@ export const loadSound = (file:string) => {
 export const loadAsset = async (url:string) => {
     return new Promise<string>(async(resolve, reject) => {
         try {
-            const assetRequest = await fetch(`/assets/${url}`);
+            const assetRequest = await fetch(`assets/${url}`);
             const assetBlob = await assetRequest.blob();
             
             const reader = new FileReader();
