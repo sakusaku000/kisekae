@@ -15,6 +15,7 @@ export const useAssetsStore = defineStore("assets", {
                     // ui
                     {name:"ui_nintendo_logo", file:"ui/nintendo.png"},
                     {name:"ui_3ds_logo", file:"ui/3ds.png"},
+                    {name:"ui_hinto", file:"ui/hinto.png"},
 
                     // bg
                     {name:"bg_faceplates", file:"bg/fp_pattern.png"},

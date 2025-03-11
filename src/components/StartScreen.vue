@@ -8,8 +8,8 @@
             </button>
         </div>
 
-        <div class="absolute bottom-10 left-0 right-0 flex items-center justify-center">
-            <p class="text-center">
+        <div class="absolute bottom-10 left-0 right-0 flex items-center justify-center sharp-shadow-sm">
+            <p class="text-center font-bold">
                 Recreation project by <a href="https://saku.dev" target="_blank">oneiricsaku</a><br>
                 Original site by Nintendo © 2014<br>
                 Song by Kyary Pamyu Pamyu

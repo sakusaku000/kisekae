@@ -10,6 +10,9 @@
         class="!inset-2 rounded-2xl"
         />
 
+        <div class="absolute -top-3 left-[22px]">
+            <img class="w-20" :src="assets.image.get('ui_hinto')">
+        </div>
         <div class="absolute inset-2 ml-4 flex flex-col justify-center">
             <p>Press <b>M</b> to mute</p>
             <p>Press <b>P</b> to pause</p>
