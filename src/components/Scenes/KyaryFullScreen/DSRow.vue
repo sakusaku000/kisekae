@@ -27,7 +27,7 @@
     }>()
 
     // -- get faceplate row asset
-    const num = Math.floor(Math.random()*2);
+    const num = Math.floor(Math.random()*3);
     const faceplateRow = assets.image.get(`fp_row${num}`);
 
     // -- store x move pos

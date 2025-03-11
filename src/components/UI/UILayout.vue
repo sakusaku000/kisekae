@@ -1,5 +1,5 @@
 <template>
-    <div class="absolute inset-0 !delay-1000">
+    <div class="fixed inset-0 !delay-1000">
         <!-- nintendo/3ds logo -->
         <NintendoLogo/>
 

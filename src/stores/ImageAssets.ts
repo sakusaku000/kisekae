@@ -41,6 +41,7 @@ export const useAssetsStore = defineStore("assets", {
                     // kyary
                     {name:"kyary_fullscreen_01", file:"kyary/KyaryFullScreen001.png"},
                     {name:"kyary_fullscreen_02", file:"kyary/KyaryFullScreen002.png"},
+                    {name:"kyary_papapa", file:"kyary/KyaryPapapa.png"},
                     
                     // 3ds row/faceplates row
                     {name:"3ds_row", file:"3ds/ds_row.png"},

@@ -16,6 +16,8 @@
         <VideoPlayer :videoId="1" v-if="activeScene === 'Video02'"/>
         <!-- Faceplate showcase -->
         <FaceplateShowcaseFS v-if="activeScene === 'FaceplateShowcaseFS'"/>
+        <!-- Kyary PAPAPA -->
+        <KyaryPapapa v-if="activeScene === 'KyaryPapapa'"/>
     </div>
 </template>
 
@@ -39,6 +41,8 @@
     import VideoPlayer from '../Scenes/VideoPlayer/VideoPlayer.vue';
     // Faceplate Showcase Full Screen
     import FaceplateShowcaseFS from '../Scenes/FaceplateShowcaseFS/FaceplateShowcaseFS.vue';
+    // Kyary PAPAPA
+    import KyaryPapapa from '../Scenes/KyaryPapapa/KyaryPapapa.vue';
 
     // -- set active scene
     let activeScene:Ref<string,string> = ref("");
@@ -50,9 +54,9 @@
         "KisekaeFlash",
         "FaceplateShowcaseFS",
         "Video01",
+        "KyaryPapapa",
         "DateFlash",
         "Video02",
-        "KisekaeFlash",
     ];
 
     // -- cycle through scenes function
