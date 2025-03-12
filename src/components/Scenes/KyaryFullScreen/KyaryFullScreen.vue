@@ -21,7 +21,7 @@
     const beats = useBeatCountStore();
 
     // -- set switch for kyary images
-    const kyarySwitch = ref(true);
+    const kyarySwitch = ref(false);
 
     // -- toggle switch on each beat
     watch(() => beats.count.second, () => {
