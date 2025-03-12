@@ -1,9 +1,13 @@
 import { defineStore } from "pinia";
 
+type views = 
+"main"|
+"load"|
+"start"
+
 export const useBeatCountStore = defineStore("beatcount", {
     state:() => ({
         started:false,
-        ready:false,
         mute:false,
         musicStopped:false,
         activeScene:"",
@@ -12,7 +16,8 @@ export const useBeatCountStore = defineStore("beatcount", {
         count:{
             second:0,
             half:0
-        }
+        },
+        activeView:undefined as views
     }),
     actions:{
         setAppReady() {
@@ -22,8 +27,11 @@ export const useBeatCountStore = defineStore("beatcount", {
             }
 
             // -- set ready
-            this.ready = true;
             this.started = true;
+            this.setAppView("main");
+        },
+        setAppView(view:views) {
+            this.activeView = view;
         },
         increaseSecond() {
             // -- increase second beat by 1, or reset back to 0 if over 4
@@ -46,16 +54,16 @@ export const useBeatCountStore = defineStore("beatcount", {
             this.musicStopped = !this.musicStopped;
         },
         reset() {
-            if (!this.ready) return;
+            if (!this.started) return;
 
             this.musicStopped = true;
             setTimeout(() => {
-                this.ready = false;
+                this.started = false;
                 this.resetCount();
             }, 100);
             setTimeout(() => {
                 this.musicStopped = false;
-                this.ready = true;
+                this.started = true;
             }, 1500);
         },
         setActiveScene(scene:string) {

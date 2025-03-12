@@ -5,10 +5,14 @@ export const useAssetsStore = defineStore("assets", {
     state:() => ({
         image:new Map() as Map<string, string>,
         assetsLoaded:0,
-        assetsTotal:0
+        assetsTotal:0,
+        loadStarted:false
     }),
     actions:{
         async load() {
+            if (this.loadStarted) return;
+            this.loadStarted = true;
+
             try {
                 // -- define image assets
                 const assets:AssetData[] = [

@@ -4,7 +4,7 @@
         <NintendoLogo/>
 
         <!-- Mute switch -->
-        <MuteSwitch v-if="beats.ready"/>
+        <MuteSwitch/>
 
         <!-- Debug info -->
         <DebugInfo v-if="beats.showDebug"/>
