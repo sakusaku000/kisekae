@@ -55,16 +55,21 @@ export const useBeatCountStore = defineStore("beatcount", {
         },
         reset() {
             if (!this.started) return;
+            this.started = false;
 
             this.musicStopped = true;
             setTimeout(() => {
-                this.started = false;
+                this.setAppView(undefined);
                 this.resetCount();
             }, 100);
             setTimeout(() => {
+                this.setAppView("main");
                 this.musicStopped = false;
-                this.started = true;
             }, 1500);
+
+            setTimeout(() => {
+                this.started = true;
+            }, 5000);
         },
         setActiveScene(scene:string) {
             this.activeScene = scene;
