@@ -50,6 +50,8 @@ export const useAssetsStore = defineStore("assets", {
                     {name:"fp_row2", file:"3ds/faceplate_2.png"},
 
                     // 3ds
+                    {name:"3ds_white_sm", file:"3ds/3ds_white_sm.png"},
+                    {name:"3ds_black_sm", file:"3ds/3ds_black_sm.png"},
                     {name:"3ds_white_lg", file:"3ds/3ds_white_lg.png"},
                     {name:"3ds_black_lg", file:"3ds/3ds_black_lg.png"},
                     {name:"3ds_white_lg_shd", file:"3ds/ds_shoulders_white.png"},

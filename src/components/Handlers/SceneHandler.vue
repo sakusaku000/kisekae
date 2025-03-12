@@ -58,7 +58,6 @@
         "KyaryPapapa",
         "DateFlash",
         "Video02",
-        // "DSCircle"
     ];
 
     // -- cycle through scenes function
